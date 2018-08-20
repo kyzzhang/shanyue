@@ -1,0 +1,26 @@
+.book-img{
+     padding-bottom: 10rpx;
+}
+.book-img image{
+    width: 221rpx;
+    height: 300rpx;
+    display: block;
+    margin: 0 auto;
+
+}
+.book-infor{
+  font-size: 35rpx;
+}
+.book-details{
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    font-size: 50rpx;
+    padding: 30rpx;
+    padding-bottom:10rpx;
+}
+.book-name{
+    margin:10rpx 0;
+}
+
+.button{
+  width:80%;
+}

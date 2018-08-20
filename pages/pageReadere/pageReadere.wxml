@@ -1,0 +1,23 @@
+<view class="contents">
+<view class="book-name">{{bookDetails.bookName}}</view>
+  <canvas class = "reader" canvas-id="myCanvas" style="width: 350px; height: 200px; border: 1px solid;"/>
+  <view class = "speed">{{reading_speed}}词/分钟</view>
+</view>
+
+<view class="play-bar">
+    <image class="play-bar-button" src="../../images/refresh-ccw.svg"   bindtap="restart"></image>
+    <image class="play-bar-button" src="../../images/skip-back.svg"   bindtap="prev"></image>
+
+    <block wx:if="{{playing === false}}">
+    <image class="play-bar-button" src="../../images/play.svg"   bindtap="play"></image>
+    </block>
+    <block wx:if="{{playing === true}}">
+    <image class="play-bar-button" src="../../images/pause.svg"   bindtap="pause"  ></image>
+    </block>
+    <image class="play-bar-button" src="../../images/plus.svg"   bindtap="speed_up" ></image>
+    <image class="play-bar-button" src="../../images/minus.svg"   bindtap="slow_down" ></image>
+</view>
+
+<progress class = "progress" percent="{{progress}}" show-info="true" color="red" stroke-width="10" activeColor="green" backgroundColor="#ccc" />
+
+

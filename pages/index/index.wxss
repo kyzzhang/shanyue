@@ -1,0 +1,52 @@
+.list{
+    width: 100%;
+    background: #fff;
+      font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+.list-item{
+    width: 33.333333%;
+    height: 360rpx;
+    text-align: center;
+    padding-top: 20px;
+    float: left;
+}
+.list-item image {
+    width: 85%;
+    height: 300rpx;
+}
+.book-name{
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    font-size: 28rpx;
+    color: #000;
+}
+.menus{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    border-radius:100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.menus image{
+    width: 64rpx;
+    height: 64rpx;
+    vertical-align: middle
+}
+.banner image {
+    width:750rpx;
+    height: auto;
+}
+/*.menu-list{
+    text-align:left;
+    width: 200rpx;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom:64rpx;
+    right: 5px;
+    z-index: 5;
+    border-radius:5%;
+}
+.menu-list view{
+    color:#fff;
+    padding:5px;
+}*/

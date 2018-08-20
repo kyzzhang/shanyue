@@ -1,0 +1,10 @@
+<view class="book-details">
+<view class="book-img"><image src="{{bookDetails.bookUrl}}" /></view>
+<view class="book-name">{{bookDetails.bookName}}</view>
+<view class="book-infor">{{bookDetails.bookInfor}}</view>
+</view>
+
+
+  <navigator url="{{link}}?title={{bookDetails.bookName}}&id={{bookDetails.id}}" hover-class="navigator-hover">
+  <button class="button" type="primary" size="default" loading="{{false}}" plain="true"> 开始阅读 </button>
+      </navigator>

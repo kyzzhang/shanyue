@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/bookList/bookDetails",
+    "pages/about/about",
+    "pages/pageReadere/pageReadere",
+    "pages/pageReader/pageReader"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#708ec2",
+    "navigationBarTitleText": "闪阅",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "black",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-black.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "images/info.png",
+        "selectedIconPath": "images/info-s.png",
+        "text": "关于"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

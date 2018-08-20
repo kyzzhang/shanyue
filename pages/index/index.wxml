@@ -1,0 +1,24 @@
+<view class="list clearfix">
+    <view class="list-item" wx:for="{{indexList}}">
+      <navigator url="../bookList/bookDetails?title={{item.bookName}}&id={{item.id}}&ch={{is_chinese}}" hover-class="navigator-hover"> <image src="{{item.bookUrl}}" /></navigator>
+      <view class="book-name">
+         <navigator url="../bookList/bookDetails?title={{item.bookName}}&id={{item.id}}&ch={{is_chinese}}" hover-class="navigator-hover"> 
+         {{item.bookName}}
+         </navigator>
+     </view>
+    </view>
+
+    <view class="menus">
+    <block wx:if="{{is_chinese === false}}">
+    <image class="play-bar-button" src="../../images/en.png"   bindtap="to_chinese"></image>
+    </block>
+    <block wx:if="{{is_chinese === true}}">
+    <image class="play-bar-button" src="../../images/zhong.png"   bindtap="to_english"  ></image>
+    </block>
+      <!--<view class="menu-list" id="menu-list">
+        <view>本机书架</view>
+        <view>wifi传书</view>
+        <view>云书架</view>        
+      </view>-->
+    </view>
+</view>

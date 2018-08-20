@@ -1,0 +1,45 @@
+.reader{
+  margin-top: 80rpx;
+  margin-bottom: auto;
+}
+.speed{
+  font-size: 35rpx;
+  margin-top: 50rpx;
+  margin-bottom: auto;
+}
+.contents{height: 100%;
+  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+  font-size: 45rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 5rpx;
+    margin-top: 50rpx;
+    margin-bottom: auto;
+}
+.progress{
+  width: 95%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 145rpx;
+}
+.play-bar{
+    position: fixed;
+    bottom:350rpx;
+    width:100%;
+    height:100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.play-bar-button{
+    width:40rpx;
+    height:40rpx;
+    margin-left: auto; 
+    margin-right: auto;
+}
