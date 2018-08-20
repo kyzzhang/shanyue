@@ -10,6 +10,7 @@ Page({
     reading_speed: 250,
     last_sent: 0,
     running: false,
+    bookurl: '',
   },
 
   timer: {
@@ -46,26 +47,40 @@ Page({
     }
   },
   onLoad: function (options) {
-    ctx.setFontSize(28)
+    var that = this
     this.setData({
       title: options.title,
       id: options.id,
       bookDetails: app.getOneBook(options.id),
     })
-    var FileSystemManager = wx.getFileSystemManager()
-    FileSystemManager.readFile({
-      filePath: `././books/${options.title}.txt`,
-      encoding: 'utf8',
-      success: function (res) {
-        text = res.data
-        text = text.split(' ')
+    wx.downloadFile({
+      url: `http://192.168.3.18:8000/${encodeURIComponent(options.title)}.txt`,
+      success:function(res){
+        that.setData({
+          bookurl:res.tempFilePath
+        })
       },
-      fail: function (res) {
+      fail:function(res){
         console.log(res.errMsg)
       },
+      complete:function(){
+        var FileSystemManager = wx.getFileSystemManager()
+        FileSystemManager.readFile({
+          filePath: that.data.bookurl,
+          encoding: 'utf8',
+          success: function (res) {
+            text = res.data
+            text = text.split(' ')
+          },
+          fail: function (res) {
+            console.log(res.errMsg)
+          },
         })
+      }
+    })
   },
   render_word: function (pos) {
+    ctx.setFontSize(28)
     var that = this
     var timer = this.timer
     var word = text[pos]
@@ -224,5 +239,4 @@ Page({
       data: i,
     })
   }
-}
-)
+})

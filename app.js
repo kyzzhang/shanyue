@@ -1,27 +1,5 @@
 //app.js
 App({
-    onLaunch:function(){
-      const FileSystemManager = wx.getFileSystemManager()
-      FileSystemManager.access({
-        path: '/books',
-        success: function() {
-          console.log('success')
-          FileSystemManager.readdir({
-            dirPath: '/books',
-            success: function (res) {
-              console.log(res.files)
-            },
-            fail: function (res) {
-              console.log(res.errMsg)
-            }
-          })
-        },
-        fail: function(res){
-          console.log(res.errMsg)
-        }
-      })
-      //console.log(FileSystemManager.readdirSync('/books'))
-    },
     getOneBook:function(id){
         var abook;
         var books = [

@@ -57,4 +57,6 @@ This project is not licensed.
 * CSDN community
 * seas.upenn.edu
 * Project Gutenberg
+* Noun Project
+* Feather icons
 
