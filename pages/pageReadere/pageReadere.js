@@ -46,31 +46,45 @@ Page({
     }
   },
   onLoad: function (options) {
-    ctx.font = "10px Courier New"
-    ctx.setFontSize(28)
+    var that = this
+    var title = options.title
     this.setData({
       title: options.title,
       id: options.id,
       bookDetails: app.getOneBook(options.id),
     })
-    var FileSystemManager = wx.getFileSystemManager()
-    FileSystemManager.readFile({
-      filePath: `././books/${options.title}.txt`,
-      encoding: 'utf8',
+    wx.downloadFile({
+      url: `https://s3.us-east-2.amazonaws.com/fast-reader-kevin/${title}.txt`,
       success: function (res) {
-        text = res.data
-        text = text.split(' ')
+        that.setData({
+          bookurl: res.tempFilePath
+        })
       },
       fail: function (res) {
         console.log(res.errMsg)
       },
+      complete: function () {
+        console.log(title)
+        var FileSystemManager = wx.getFileSystemManager()
+        FileSystemManager.readFile({
+          filePath: that.data.bookurl,
+          encoding: 'utf8',
+          success: function (res) {
+            text = res.data
+            text = text.split(' ')
+          },
+          fail: function (res) {
+            console.log(res.errMsg)
+          },
+        })
+      }
     })
   },
   render_word: function (pos) {
     var that = this
     var timer = this.timer
     var word = text[pos]
-
+    ctx.font = "28px Courier"
     ctx.setTextAlign('center')
     var focus_letter = ""
     var letter_pos = 0
@@ -120,7 +134,6 @@ Page({
     ctx.fillText(focus_letter, 175, 110)
     ctx.setFillStyle('black')
     ctx.fillText(word, 175, 110)
-
     ctx.draw()
     var read_speed = this.data.read_speed
     if (word.endsWith(".")) {
@@ -214,6 +227,12 @@ Page({
         i = parseInt(res.data)
       },
     })
+    wx.getStorage({
+      key: 'reading_spd' + this.data.id,
+      success: function (res) {
+        i = parseInt(res.data)
+      },
+    })
   },
 
 
@@ -230,6 +249,10 @@ Page({
     wx.setStorage({
       key: 'reading_pos' + this.data.id,
       data: i,
+    })
+    wx.setStorage({
+      key: 'reading_spd' + this.data.id,
+      data: that.data.reading_speed,
     })
   }
 }

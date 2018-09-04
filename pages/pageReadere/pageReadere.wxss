@@ -1,6 +1,7 @@
 .reader{
   margin-top: 80rpx;
   margin-bottom: auto;
+  font: 'Lucida Console'
 }
 .speed{
   font-size: 35rpx;
@@ -8,7 +9,6 @@
   margin-bottom: auto;
 }
 .contents{height: 100%;
-  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: 45rpx;
     display: flex;
     flex-direction: column;

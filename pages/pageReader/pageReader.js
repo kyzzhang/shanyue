@@ -54,7 +54,7 @@ Page({
       bookDetails: app.getOneBook(options.id),
     })
     wx.downloadFile({
-      url: `http://192.168.3.18:8000/${encodeURIComponent(options.title)}.txt`,
+      url: `https://s3.us-east-2.amazonaws.com/fast-reader-kevin/${encodeURIComponent(options.title)}.txt`,
       success:function(res){
         that.setData({
           bookurl:res.tempFilePath
@@ -107,7 +107,7 @@ Page({
         ctx.setFillStyle('red')
       ctx.fillText(pure_word[1], 175, 110)
         ctx.setFillStyle('black')
-      var words = word.replace(pure_word[1], '　')
+      var words = word.replace(pure_word[1], ' 　')
       ctx.fillText(words, 175, 110)
     } else if (word.length == 4 && pure_word.length >= 3){
         ctx.setFillStyle('red')
