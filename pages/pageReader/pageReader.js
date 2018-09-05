@@ -81,6 +81,7 @@ Page({
   },
   render_word: function (pos) {
     ctx.setFontSize(28)
+    ctx.font = "28px Microsoft YaHei, 微软雅黑"
     var that = this
     var timer = this.timer
     var word = text[pos]
@@ -107,7 +108,7 @@ Page({
         ctx.setFillStyle('red')
       ctx.fillText(pure_word[1], 175, 110)
         ctx.setFillStyle('black')
-      var words = word.replace(pure_word[1], ' 　')
+      var words = word.replace(pure_word[1], '　')
       ctx.fillText(words, 175, 110)
     } else if (word.length == 4 && pure_word.length >= 3){
         ctx.setFillStyle('red')

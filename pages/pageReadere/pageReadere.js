@@ -84,7 +84,6 @@ Page({
     var that = this
     var timer = this.timer
     var word = text[pos]
-    ctx.font = "28px Courier"
     ctx.setTextAlign('center')
     var focus_letter = ""
     var letter_pos = 0
@@ -129,12 +128,13 @@ Page({
         word = " ".repeat(detfact1) + word.substring(0,letter_pos)+" " + word.substring(letter_pos + 1)
         break;
     }
-    
+    ctx.font = "28px monospace"
     ctx.setFillStyle('red')
     ctx.fillText(focus_letter, 175, 110)
     ctx.setFillStyle('black')
     ctx.fillText(word, 175, 110)
     ctx.draw()
+    console.log(ctx.font)
     var read_speed = this.data.read_speed
     if (word.endsWith(".")) {
       timer.set_interval(60000 / (that.data.reading_speed / 2))
