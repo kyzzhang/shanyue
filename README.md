@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To get a preview of how this program will look like without downloading WeChat's SDK, download the Speedreader_cn.py or the Speedreader_en.py and the drawingpanel.py, place them under the same directory and run the code in the format: python3 Speedreader_en.py filename.txt width height fontsize wpm.
 
 ### Prerequisites
 
