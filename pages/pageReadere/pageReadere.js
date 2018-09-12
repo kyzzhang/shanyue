@@ -64,7 +64,6 @@ Page({
         console.log(res.errMsg)
       },
       complete: function () {
-        console.log(title)
         var FileSystemManager = wx.getFileSystemManager()
         FileSystemManager.readFile({
           filePath: that.data.bookurl,
@@ -134,7 +133,6 @@ Page({
     ctx.setFillStyle('black')
     ctx.fillText(word, 175, 110)
     ctx.draw()
-    console.log(ctx.font)
     var read_speed = this.data.read_speed
     if (word.endsWith(".")) {
       timer.set_interval(60000 / (that.data.reading_speed / 2))

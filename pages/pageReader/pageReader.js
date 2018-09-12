@@ -81,7 +81,7 @@ Page({
   },
   render_word: function (pos) {
     ctx.setFontSize(28)
-    ctx.font = "28px Microsoft YaHei, 微软雅黑"
+    ctx.font = "28px Microsoft YaHei"
     var that = this
     var timer = this.timer
     var word = text[pos]
