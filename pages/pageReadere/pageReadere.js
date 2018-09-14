@@ -54,7 +54,7 @@ Page({
       bookDetails: app.getOneBook(options.id),
     })
     wx.downloadFile({
-      url: `https://s3.us-east-2.amazonaws.com/fast-reader-kevin/${title}.txt`,
+      url: `https://shanyue-1257613122.cos.ap-beijing.myqcloud.com/${title}.txt`,
       success: function (res) {
         that.setData({
           bookurl: res.tempFilePath

@@ -15,7 +15,7 @@ App({
           {
             id: "1",
             bookUrl: "../../images/welcome.png",
-            bookName: "点我开始你的闪阅之旅",
+            bookName: "点我开始你的闪月之旅",
             bookInfor: ""
           },
           {
