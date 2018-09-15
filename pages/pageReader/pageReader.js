@@ -12,6 +12,7 @@ Page({
     last_sent: 0,
     running: false,
     bookurl: '',
+    hiddenLoading: false,
   },
 
   timer: {
@@ -77,6 +78,11 @@ Page({
           fail: function (res) {
             console.log(res.errMsg)
           },
+          complete: function(){
+            that.setData({
+              hiddenLoading: !that.data.hiddenLoading
+            })
+          }
         })
       }
     })

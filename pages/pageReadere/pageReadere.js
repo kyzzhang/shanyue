@@ -11,6 +11,7 @@ Page({
     reading_speed: 300,
     last_sent: 0,
     running: false,
+    hiddenLoading: false,
   },
 
   timer: {
@@ -76,6 +77,11 @@ Page({
           fail: function (res) {
             console.log(res.errMsg)
           },
+          complete: function () {
+            that.setData({
+              hiddenLoading: !that.data.hiddenLoading
+            })
+          }
         })
       }
     })

@@ -1,3 +1,4 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
 <view class="contents">
 <view class="book-name">{{bookDetails.bookName}}</view>
   <canvas class = "reader" canvas-id="myCanvas" style="width: 350px; height: 200px; border: 1px solid;"/>

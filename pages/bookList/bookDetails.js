@@ -8,7 +8,7 @@ Page({
       id:options.id,
       bookDetails:app.getOneBook(options.id),
     })
-    if (options.ch === "true") {
+    if (options.ch === "1") {
       this.setData({
         link: "../pageReader/pageReader"
       })

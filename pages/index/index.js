@@ -2,7 +2,7 @@ var app = getApp();
 Page({
   data: {
     indexList:app.getBoookList(),
-    is_chinese:true
+    //is_chinese:true
   },
   onLoad: function(options) {
     // Do some initialize when page load.
@@ -20,7 +20,7 @@ Page({
     // Do something when page close.
   },
   // Event handler.
-  to_chinese: function() {
+  /*to_chinese: function() {
     this.setData({
       is_chinese: true
     })
@@ -30,4 +30,5 @@ Page({
       is_chinese: false
     })
   }
+  */
 })

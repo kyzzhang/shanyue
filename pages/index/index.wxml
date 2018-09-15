@@ -1,8 +1,8 @@
 <view class="list clearfix">
     <view class="list-item" wx:for="{{indexList}}">
-      <navigator url="../bookList/bookDetails?title={{item.bookName}}&id={{item.id}}&ch={{is_chinese}}" hover-class="navigator-hover"> <image src="{{item.bookUrl}}" /></navigator>
+      <navigator url="../bookList/bookDetails?title={{item.bookName}}&id={{item.id}}&ch={{item.isChinese}}" hover-class="navigator-hover"> <image src="{{item.bookUrl}}" /></navigator>
       <view class="book-name">
-         <navigator url="../bookList/bookDetails?title={{item.bookName}}&id={{item.id}}&ch={{is_chinese}}" hover-class="navigator-hover"> 
+         <navigator url="../bookList/bookDetails?title={{item.bookName}}&id={{item.id}}&ch={{item.isChinese}}" hover-class="navigator-hover"> 
          {{item.bookName}}
          </navigator>
      </view>
