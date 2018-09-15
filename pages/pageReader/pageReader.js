@@ -6,6 +6,7 @@ const ctx = wx.createCanvasContext('myCanvas')
 
 Page({
   data: {
+    showView: true,
     playing: false,
     reading_speed: 250,
     last_sent: 0,
@@ -47,6 +48,7 @@ Page({
     }
   },
   onLoad: function (options) {
+    text = ""
     var that = this
     this.setData({
       title: options.title,
@@ -131,8 +133,9 @@ Page({
 
     ctx.draw()
     var read_speed = this.data.read_speed
+    var delayTime = word.length * 25
     if (word.endsWith("。")) {
-      timer.set_interval(60000 / (that.data.reading_speed / 2))
+      timer.set_interval((60000 / (that.data.reading_speed / 2)) + delayTime)
       pos++
       i = pos
       that.setData({
@@ -141,7 +144,7 @@ Page({
       })
     }
     else if (word.endsWith("；")|| word.endsWith("，") || word.endsWith("、")){
-      timer.set_interval(60000 / (that.data.reading_speed / 2))
+      timer.set_interval((60000 / (that.data.reading_speed / 2)) + delayTime)
       pos++
       i = pos
       that.setData({
@@ -149,7 +152,7 @@ Page({
       })
     } else {
       pos++
-      timer.set_interval(60000 / (that.data.reading_speed))
+      timer.set_interval((60000 / (that.data.reading_speed)) + delayTime)
       i = pos
       that.setData({
         progress: Math.round((i / text.length) * 100),
@@ -210,6 +213,13 @@ Page({
     })
     this.timer.set_interval(60000 / this.data.reading_speed)
   },
+  onChangeShowState: function () {
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
+    })
+
+  },
 
   onReady: function () {
   },
@@ -220,6 +230,14 @@ Page({
       key: 'reading_pos'+this.data.id,
       success: function (res) {
         i = parseInt(res.data)
+      },
+    })
+    wx.getStorage({
+      key: 'reading_spd' + this.data.id,
+      success: function (res) {
+        that.setData({
+          reading_speed: parseInt(res.data)
+        })
       },
     })
   },

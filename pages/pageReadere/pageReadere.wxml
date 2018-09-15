@@ -1,9 +1,13 @@
 <view class="contents">
 <view class="book-name">{{bookDetails.bookName}}</view>
   <canvas class = "reader" canvas-id="myCanvas" style="width: 350px; height: 200px; border: 1px solid;"/>
-  <view class = "speed">{{reading_speed}}词/分钟</view>
-</view>
 
+  <view class="viewButton">
+     <button bindtap="onChangeShowState" size = "mini">{{showView?'隐藏':'显示'}}</button>
+  </view>
+  </view>
+<block wx:if="{{showView}}">
+<view class = "speed">{{reading_speed}}词/分钟</view>
 <view class="play-bar">
     <image class="play-bar-button" src="../../images/refresh-ccw.svg"   bindtap="restart"></image>
     <image class="play-bar-button" src="../../images/skip-back.svg"   bindtap="prev"></image>
@@ -19,5 +23,5 @@
 </view>
 
 <progress class = "progress" percent="{{progress}}" show-info="true" color="red" stroke-width="10" activeColor="green" backgroundColor="#ccc" />
-
+</block>
 

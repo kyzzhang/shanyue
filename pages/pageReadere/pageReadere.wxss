@@ -1,14 +1,20 @@
 .reader{
   margin-top: 80rpx;
   margin-bottom: auto;
-  font: 'Lucida Console'
+}
+.viewButton{
+  padding-top: 30px;
 }
 .speed{
   font-size: 35rpx;
   margin-top: 50rpx;
   margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .contents{height: 100%;
+  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
   font-size: 45rpx;
     display: flex;
     flex-direction: column;
@@ -24,7 +30,7 @@
   height: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 145rpx;
+  padding-top: 105rpx;
 }
 .play-bar{
     position: fixed;
