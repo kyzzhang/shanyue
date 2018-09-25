@@ -13,6 +13,7 @@ Page({
     running: false,
     bookurl: '',
     hiddenLoading: false,
+    systemInfo: ""
   },
 
   timer: {
@@ -51,6 +52,13 @@ Page({
   onLoad: function (options) {
     text = ""
     var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          systemInfo: res.platform
+        })
+      },
+    })
     this.setData({
       title: options.title,
       id: options.id,
@@ -88,6 +96,18 @@ Page({
     })
   },
   render_word: function (pos) {
+    var font = ''
+    switch (this.data.systemInfo) {
+      case 'devtools':
+        font = "28px Courier New";
+        break;
+      case 'ios':
+        font = "28px Courier New";
+        break;
+      case 'android':
+        font = "28px monospace";
+        break;
+    }
     ctx.setFontSize(28)
     ctx.font = "28px Microsoft YaHei"
     var that = this
@@ -101,32 +121,32 @@ Page({
     //}
     ctx.setTextAlign('center')
     if (word.length== 1 && pure_word.length >=0){
-        ctx.setFillStyle('red')
+      ctx.setFillStyle('#E47A2E')
       ctx.fillText(pure_word, 175, 110)
         ctx.setFillStyle('black')
         var punc = word.replace(pure_word, '　　')
       ctx.fillText(punc, 175, 110)
     } else if (word.length == 2 && pure_word.length >= 1){
-        ctx.setFillStyle('red')
+      ctx.setFillStyle('#E47A2E')
       ctx.fillText(pure_word[0], 175, 110)
         ctx.setFillStyle('black')
       var words = word.replace(pure_word[0], '　　')
       ctx.fillText(words, 175, 110)
     } else if (word.length == 3 && pure_word.length >= 2) {
-        ctx.setFillStyle('red')
+      ctx.setFillStyle('#E47A2E')
       ctx.fillText(pure_word[1], 175, 110)
         ctx.setFillStyle('black')
       var words = word.replace(pure_word[1], '　')
       ctx.fillText(words, 175, 110)
     } else if (word.length == 4 && pure_word.length >= 3){
-        ctx.setFillStyle('red')
+      ctx.setFillStyle('#E47A2E')
       ctx.fillText(pure_word[1], 175, 110)
         ctx.setFillStyle('black')
       var words = word.replace(pure_word[1], '　')
       ctx.fillText('　' + words, 175, 110)
     }
     else if (word.length == 5 && pure_word.length >= 4) {
-      ctx.setFillStyle('red')
+      ctx.setFillStyle('#E47A2E')
       ctx.fillText(pure_word[2], 175, 110)
       ctx.setFillStyle('black')
       var words = word.replace(pure_word[2], '　')
@@ -139,9 +159,9 @@ Page({
 
     ctx.draw()
     var read_speed = this.data.read_speed
-    var delayTime = word.length * 25
+    var delayTime = Math.round(word.length ** 3 / (that.data.reading_speed / 100))
     if (word.endsWith("。")) {
-      timer.set_interval((60000 / (that.data.reading_speed / 2)) + delayTime)
+      timer.set_interval(60000 / (that.data.reading_speed / 2)+delayTime)
       pos++
       i = pos
       that.setData({
@@ -150,7 +170,7 @@ Page({
       })
     }
     else if (word.endsWith("；")|| word.endsWith("，") || word.endsWith("、")){
-      timer.set_interval((60000 / (that.data.reading_speed / 2)) + delayTime)
+      timer.set_interval(60000  / (that.data.reading_speed / 2)+delayTime)
       pos++
       i = pos
       that.setData({
@@ -158,7 +178,7 @@ Page({
       })
     } else {
       pos++
-      timer.set_interval((60000 / (that.data.reading_speed)) + delayTime)
+      timer.set_interval(60000 / (that.data.reading_speed)+delayTime)
       i = pos
       that.setData({
         progress: Math.round((i / text.length) * 100),

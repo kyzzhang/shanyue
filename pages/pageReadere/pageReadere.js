@@ -12,6 +12,7 @@ Page({
     last_sent: 0,
     running: false,
     hiddenLoading: false,
+    systemInfo: ""
   },
 
   timer: {
@@ -50,6 +51,13 @@ Page({
   onLoad: function (options) {
     text = ""
     var that = this
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          systemInfo:res.platform
+        })
+      },
+    })
     this.setData({
       title: options.title,
       id: options.id,
@@ -90,7 +98,7 @@ Page({
     var that = this
     var timer = this.timer
     var word = text[pos]
-    ctx.setTextAlign('center')
+    ctx.setTextAlign("center")
     var focus_letter = ""
     var letter_pos = 0
     var detfact1 = 0
@@ -134,16 +142,27 @@ Page({
         word = " ".repeat(detfact1) + word.substring(0,letter_pos)+" " + word.substring(letter_pos + 1)
         break;
     }
-    ctx.font = "28px monospace"
-    ctx.setFillStyle('red')
+    var font = ''
+    switch (this.data.systemInfo) {
+      case 'devtools':
+        font = "28px Courier New";
+        break;
+      case 'ios':
+        font = "28px Courier New";
+        break;
+      case 'android':
+        font = "28px monospace";
+        break;
+    }
+    ctx.font = font
+    ctx.setFillStyle('#E47A2E')
     ctx.fillText(focus_letter, 175, 110)
     ctx.setFillStyle('black')
     ctx.fillText(word, 175, 110)
     ctx.draw()
-    var read_speed = this.data.read_speed
-    var delayTime = length * 25
+    var delayTime = Math.round(length ** 2.5 / (that.data.reading_speed/100))
     if (word.endsWith(".")) {
-      timer.set_interval((60000 / (that.data.reading_speed / 2))+delayTime)
+      timer.set_interval((60000 / (that.data.reading_speed / 2)) + delayTime)
       pos++
       i = pos
       that.setData({

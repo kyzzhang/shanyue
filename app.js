@@ -1,5 +1,7 @@
 //app.js
 App({
+
+
     getOneBook:function(id){
         var abook;
         var books = this.getBoookList()
@@ -14,8 +16,8 @@ App({
         var indexList = [
           {
             id: "1",
-            bookUrl: "../../images/welcome.png",
-            bookName: "点我开始你的闪月之旅",
+            bookUrl: "../../images/welcome.jpeg",
+            bookName: "点我开始闪阅之旅",
             bookInfor: "",
             isChinese: "1",
           },
@@ -69,8 +71,10 @@ App({
             isChinese: "1",
           }
                     ];
-
                      return indexList;
-                },
+                
+    },
+
+
 
 })

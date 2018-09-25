@@ -20,15 +20,4 @@ Page({
     // Do something when page close.
   },
   // Event handler.
-  /*to_chinese: function() {
-    this.setData({
-      is_chinese: true
-    })
-  },
-  to_english: function() {
-    this.setData({
-      is_chinese: false
-    })
-  }
-  */
 })

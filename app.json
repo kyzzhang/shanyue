@@ -8,8 +8,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#E47A2E",
-    "navigationBarTitleText": "闪月",
+    "navigationBarBackgroundColor": "#3F69AA",
+    "navigationBarTitleText": "闪阅 SpeedRead",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -21,7 +21,7 @@
       {
         "pagePath": "pages/index/index",
         "iconPath": "images/home.png",
-        "selectedIconPath": "images/home-black.png",
+        "selectedIconPath": "images/home-s.png",
         "text": "主页"
       },
       {
